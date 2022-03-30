@@ -7,7 +7,8 @@ using System.Drawing;
 
 namespace _05_look
 {
-    class Eye {
+    class Eye
+    {
         MyEllipse ball;
         MyEllipse pupil;
 
@@ -20,7 +21,8 @@ namespace _05_look
         int cx;
         int cy;
 
-        public Eye(int x, int y, int _R, Color clr) {
+        public Eye(int x, int y, int _R, Color clr)
+        {
             R = _R;
 
             ball = new MyEllipse(x, y, R, R, Color.Black, Color.White);
@@ -37,17 +39,27 @@ namespace _05_look
             pupil.Draw(gr);
         }
 
-        public void LookAt(int x, int y) {
+        public void LookAt(int x, int y)
+        {
             int dy = y - pupil.Y;
             int dx = x - pupil.X;
             double gipotenyza = Math.Sqrt(dy * dy + dx * dx);
-            double ky =  dy / gipotenyza;
-            double kx =  dx / gipotenyza;
+            double ky = dy / gipotenyza;
+            double kx = dx / gipotenyza;
 
             double ddy = ky * r;
             double ddx = kx * r;
-            pupil.X = cx + (int)(ddx);
-            pupil.Y = cy + (int)(ddy);
+            if (gipotenyza < R / 2)
+            {
+                pupil.X = cx;
+                pupil.Y = cy;
+            }
+            else
+            {
+                pupil.X = cx + (int)(ddx);
+                pupil.Y = cy + (int)(ddy);
+            }
+
         }
 
     }
@@ -61,7 +73,8 @@ namespace _05_look
         Eye reye;
         private int gap;
 
-        public Eyes(int X, int Y, int R = 10, int Gap = 0) {
+        public Eyes(int X, int Y, int R = 10, int Gap = 0)
+        {
             x = X;
             y = Y;
             r = R;
@@ -76,7 +89,8 @@ namespace _05_look
             reye.Draw(gr);
         }
 
-        public void LookAt(int x, int y) {
+        public void LookAt(int x, int y)
+        {
             leye.LookAt(x, y);
             reye.LookAt(x, y);
         }
