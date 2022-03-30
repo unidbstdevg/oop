@@ -27,8 +27,22 @@ namespace my_rect
             Pen pn = new Pen(cColor, 2);
             Brush br = new SolidBrush(bColor);
 
-            gr.FillRectangle(br, x, y, width, height);
-            gr.DrawRectangle(pn, x, y, width, height);
+            int nx = x;
+            int nwidth = width;
+            int ny = y;
+            int nheight = height;
+
+            if(nwidth < 0) {
+                nwidth = width * -1;
+                nx += width;
+            }
+            if(nheight < 0) {
+                nheight = height * -1;
+                ny += height;
+            }
+
+            gr.FillRectangle(br, nx, ny, nwidth, nheight);
+            gr.DrawRectangle(pn, nx, ny, nwidth, nheight);
 
             base.Draw(gr);
         }
