@@ -57,7 +57,7 @@ namespace _09_matrix
         public void Print() {
             for(int i = 0; i < n; i++) {
                 for(int j = 0; j < k; j++) {
-                    Console.Write(m[i, j] + " ");
+                    Console.Write(Math.Round(m[i, j], 1) + " ");
                 }
                 Console.WriteLine();
             }
@@ -66,7 +66,7 @@ namespace _09_matrix
         public static MyMatrix operator +(MyMatrix a, MyMatrix b)
         {
             if(a.n != b.n || a.k != b.k) {
-                throw new ApplicationException("Matrix is not equivalent");
+                throw new ApplicationException("Matrix is not same dimensions");
             }
 
             MyMatrix rm = new MyMatrix(a.n, a.k);
@@ -174,6 +174,10 @@ namespace _09_matrix
         }
 
         public MyMatrix Inverse() {
+            if(n != k) {
+                throw new ApplicationException("Обратная матрица для неквадратной матрицы не существует");
+            }
+
             MyMatrix obr = new MyMatrix(n, k);
 
             double mxDet = this.Determinant();
@@ -205,7 +209,7 @@ namespace _09_matrix
                         }
                     }
                     result = minor.Determinant();
-                    obr[q, z] = Math.Round(Math.Pow(-1, z + q) * result / mxDet, 2);
+                    obr[q, z] = Math.Pow(-1, z + q) * result / mxDet;
                 }
             }
             return obr;
