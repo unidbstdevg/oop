@@ -61,16 +61,30 @@ namespace my_rect
                 DrawFrame(gr);
         }
         public void DrawFrame(Graphics gr) {
+            int nx = x;
+            int nwidth = width;
+            int ny = y;
+            int nheight = height;
+
+            if(nwidth < 0) {
+                nwidth = width * -1;
+                nx += width;
+            }
+            if(nheight < 0) {
+                nheight = height * -1;
+                ny += height;
+            }
+
             Pen pn = new Pen(Color.Black, 1);
             pn.DashStyle = DashStyle.Dash;
             pn.DashPattern = new float[2] { 6, 3 };
 
             int gap = 20;
 
-            Point p1 = new Point(x - gap, y - gap);
-            Point p2 = new Point(x - gap, y + height + gap);
-            Point pgap = new Point(x + width + gap, y + height + gap);
-            Point p4 = new Point(x + width + gap, y - gap);
+            Point p1 = new Point(nx - gap, ny - gap);
+            Point p2 = new Point(nx - gap, ny + nheight + gap);
+            Point pgap = new Point(nx + nwidth + gap, ny + nheight + gap);
+            Point p4 = new Point(nx + nwidth + gap, ny - gap);
             gr.DrawLine(pn, p1, p2);
             gr.DrawLine(pn, p2, pgap);
             gr.DrawLine(pn, pgap, p4);
@@ -78,10 +92,10 @@ namespace my_rect
 
             int pad = 5;
             int pad_size = 10;
-            gr.DrawRectangle(pn, x - gap - pad, y - gap - pad, pad_size, pad_size);
-            gr.DrawRectangle(pn, x - gap - pad, y + height + gap, pad_size, pad_size);
-            gr.DrawRectangle(pn, x + width + gap, y + height + gap, pad_size, pad_size);
-            gr.DrawRectangle(pn, x + width + gap, y - gap - pad, pad_size, pad_size);
+            gr.DrawRectangle(pn, nx - gap - pad, ny - gap - pad, pad_size, pad_size);
+            gr.DrawRectangle(pn, nx - gap - pad, ny + nheight + gap, pad_size, pad_size);
+            gr.DrawRectangle(pn, nx + nwidth + gap, ny + nheight + gap, pad_size, pad_size);
+            gr.DrawRectangle(pn, nx + nwidth + gap, ny - gap - pad, pad_size, pad_size);
         }
 
         public virtual bool Touch(int xx, int yy) {
