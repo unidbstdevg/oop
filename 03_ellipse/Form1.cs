@@ -21,8 +21,7 @@ namespace _03_ellipse
         private void button1_Click(object sender, EventArgs e)
         {
             me1 = new MyEllipse(150, 100, 90, 50, Color.Green, Color.Yellow);
-            Graphics gr = panel1.CreateGraphics();
-            me1.Draw(gr);
+            panel1.Refresh();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -51,5 +50,43 @@ namespace _03_ellipse
                 panel1.Refresh();
             }
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (me1 != null)
+            {
+                me1.Y -= 10;
+                panel1.Refresh();
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (me1 != null)
+            {
+                me1.Y += 10;
+                panel1.Refresh();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (me1 != null)
+            {
+                me1.Width -= 10;
+                me1.Height -= 10;
+                panel1.Refresh();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (me1 != null)
+            {
+                me1.Width += 10;
+                me1.Height += 10;
+                panel1.Refresh();
+            }
+    }
     }
 }
