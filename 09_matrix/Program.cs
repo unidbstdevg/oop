@@ -11,9 +11,19 @@ namespace _09_matrix
                 MyMatrix a = new MyMatrix(2, 3);
                 a[0, 0] = 5;
                 a[1, 1] = 9;
+                MyMatrix b = new MyMatrix(2, 3);
+                b[0, 1] = 2;
+                b[1, 1] = 3;
+
+                Console.WriteLine("Matrix a:");
                 a.Print();
-                a[10, 10] = 3;
-                Console.WriteLine("Lmao u'll never see this tExt. shit!");
+
+                Console.WriteLine("\nMatrix b:");
+                b.Print();
+
+                Console.WriteLine("\nMatrix a+b:");
+                MyMatrix c = a + b;
+                c.Print();
             } catch(Exception ex) {
                 Console.WriteLine(ex.Message);
             }
