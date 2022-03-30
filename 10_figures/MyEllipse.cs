@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace my_rect
 {
@@ -24,6 +25,12 @@ namespace my_rect
             gr.DrawEllipse(pn, x, y, width, height);
 
             base.Draw(gr);
+        }
+
+        public override bool Touch(int xx, int yy) {
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(x, y, width, height);
+            return path.IsVisible(xx, yy);
         }
 
     }

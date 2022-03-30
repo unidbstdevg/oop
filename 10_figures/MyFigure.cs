@@ -49,7 +49,8 @@ namespace my_rect
         }
 
         public virtual void Draw(Graphics gr) {
-            if (Selected) DrawFrame(gr);
+            if (Selected)
+                DrawFrame(gr);
         }
         public void DrawFrame(Graphics gr) {
             Pen pn = new Pen(Color.Black, 1);
@@ -73,6 +74,10 @@ namespace my_rect
             gr.DrawRectangle(pn, x - gap - pad, y + height + gap, pad_size, pad_size);
             gr.DrawRectangle(pn, x + width + gap, y + height + gap, pad_size, pad_size);
             gr.DrawRectangle(pn, x + width + gap, y - gap - pad, pad_size, pad_size);
+        }
+
+        public virtual bool Touch(int xx, int yy) {
+            return false;
         }
     }
 }
