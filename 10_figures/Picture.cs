@@ -81,7 +81,7 @@ namespace my_rect
 
         public void GreenifyAll() {
             foreach (IDrawableC d in al)
-                d.Color = Color.Green;
+                d.BColor = Color.Green;
         }
     }
 }

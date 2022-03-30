@@ -34,12 +34,12 @@ namespace my_rect
             this.rb_select = new System.Windows.Forms.RadioButton();
             this.rb_create = new System.Windows.Forms.RadioButton();
             this.list_figures = new System.Windows.Forms.ComboBox();
-            this.textbox_width = new System.Windows.Forms.TextBox();
-            this.textbox_height = new System.Windows.Forms.TextBox();
 
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,24 +87,6 @@ namespace my_rect
             this.list_figures.Items.Add("Ellipse");
             this.list_figures.Items.Add("Rectangle");
             // 
-            // textbox_width
-            // 
-            this.textbox_width.AutoSize = true;
-            this.textbox_width.Location = new System.Drawing.Point(713, 90);
-            this.textbox_width.Name = "Width";
-            this.textbox_width.Size = new System.Drawing.Size(69, 21);
-            this.textbox_width.TabIndex = 1;
-            this.textbox_width.Text = "width";
-            // 
-            // textbox_height
-            // 
-            this.textbox_height.AutoSize = true;
-            this.textbox_height.Location = new System.Drawing.Point(713, 120);
-            this.textbox_height.Name = "Height";
-            this.textbox_height.Size = new System.Drawing.Size(69, 21);
-            this.textbox_height.TabIndex = 1;
-            this.textbox_height.Text = "height";
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(713, 400);
@@ -117,7 +99,7 @@ namespace my_rect
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(713, 150);
+            this.button2.Location = new System.Drawing.Point(713, 180);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -127,13 +109,23 @@ namespace my_rect
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(713, 180);
+            this.button3.Location = new System.Drawing.Point(713, 90);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Greenify";
+            this.button3.Text = "Set fill color";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(713, 120);
+            this.button4.Name = "button3";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Set border color";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
@@ -141,13 +133,12 @@ namespace my_rect
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rb_select);
             this.Controls.Add(this.rb_create);
             this.Controls.Add(this.list_figures);
-            this.Controls.Add(this.textbox_width);
-            this.Controls.Add(this.textbox_height);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -161,11 +152,11 @@ namespace my_rect
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.RadioButton rb_select;
         private System.Windows.Forms.RadioButton rb_create;
         private System.Windows.Forms.ComboBox list_figures;
-        private System.Windows.Forms.TextBox textbox_width;
-        private System.Windows.Forms.TextBox textbox_height;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 

@@ -59,7 +59,27 @@ namespace my_rect
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            pic.GreenifyAll();
+            if(pic.Figure == null) {
+                MessageBox.Show("Firstly select figure");
+                return;
+            }
+
+            if (colorDialog1.ShowDialog() != DialogResult.Cancel) {
+                pic.Figure.BColor = colorDialog1.Color;
+            }
+
+            panel1.Invalidate();
+        }
+
+        private void button4_Click(object sender, EventArgs e) {
+            if(pic.Figure == null) {
+                MessageBox.Show("Firstly select figure");
+                return;
+            }
+
+            if (colorDialog1.ShowDialog() != DialogResult.Cancel) {
+                pic.Figure.CColor = colorDialog1.Color;
+            }
 
             panel1.Invalidate();
         }

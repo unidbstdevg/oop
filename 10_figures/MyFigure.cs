@@ -16,7 +16,8 @@ namespace my_rect
 
         private int activePoint = 3;
 
-        public Color Color { get { return bColor; } set { bColor = value; } }
+        public Color CColor { get { return cColor; } set { cColor = value; } }
+        public Color BColor { get { return bColor; } set { bColor = value; } }
         public int Width { get { return width; } set { width = value; } }
         public int Height { get { return height; } set { height = value; } }
         public int X { get { return x; } set { x = value; } }

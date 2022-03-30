@@ -13,7 +13,7 @@ namespace my_rect
     }
     interface IDrawableC : IDrawable
     {
-        Color Color {
+        Color BColor {
             get;
             set;
         }
