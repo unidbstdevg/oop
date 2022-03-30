@@ -33,6 +33,7 @@ namespace sam_rab1
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -59,6 +60,12 @@ namespace sam_rab1
             this.timer1.Enabled = true;
             this.timer1.Interval = 750;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 1;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // listBox1
             // 
@@ -91,6 +98,7 @@ namespace sam_rab1
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.ListBox listBox1;
     }
 }

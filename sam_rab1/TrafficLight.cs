@@ -8,11 +8,15 @@ using System.Windows.Forms;
 
 namespace sam_rab1
 {
+    public delegate void TfStateEvent();
     class TrafficLight
     {
         int X, Y, Height;
         int Mode;
         List<MyEllipse> lights;
+
+        public event TfStateEvent GreenEvent;
+        public event TfStateEvent NotGreenEvent;
 
         enum StateColor { BLACK, RED, GREEN, YELLOW };
         StateColor state;
@@ -145,14 +149,18 @@ namespace sam_rab1
             {
                 case StateColor.RED:
                     lights[2].CColor = Color.Red;
+                    NotGreenEvent?.Invoke();
                     break;
                 case StateColor.GREEN:
                     lights[0].CColor = Color.Green;
+                    GreenEvent?.Invoke();
                     break;
                 case StateColor.YELLOW:
                     lights[1].CColor = Color.Yellow;
+                    NotGreenEvent?.Invoke();
                     break;
                 case StateColor.BLACK:
+                    NotGreenEvent?.Invoke();
                     break;
             }
         }
