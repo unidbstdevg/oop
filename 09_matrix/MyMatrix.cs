@@ -93,5 +93,15 @@ namespace _09_matrix
 
             return rm;
         }
+
+        public MyMatrix Transpose() {
+            MyMatrix rm = new MyMatrix(k, n);
+
+            for(int j = 0; j < n; j++)
+                for (int i = 0; i < k; i++)
+                    rm[i, j] = m[j, i];
+
+            return rm;
+        }
     }
 }
