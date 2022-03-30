@@ -39,8 +39,20 @@ namespace _07_frac
             }
             chisl = c;
             znam = z;
+        }
 
-            // TODO: normalize fraction
+        public void Normalize() {
+            if(znam < 0) {
+                chisl *= -1;
+                znam *= -1;
+            }
+
+            for(int i = 2; i < znam; i++) {
+                if(chisl % i == 0 && znam % i == 0) {
+                    chisl /= i;
+                    znam /= i;
+                }
+            }
         }
 
         public override string ToString()

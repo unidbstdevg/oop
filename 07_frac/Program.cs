@@ -42,12 +42,17 @@ namespace _07_frac
 
             Console.WriteLine("f1 > f2? => " + f1 + " > " + f2 + "? => " + (f1 > f2));
             Console.WriteLine("f1 >= f2? => " + f1 + " >= " + f2 + "? => " + (f1 >= f2));
-            
+
             Console.WriteLine("f1 < f2? => " + f1 + " < " + f2 + "? => " + (f1 < f2));
             Console.WriteLine("f1 <= f2? => " + f1 + " <= " + f2 + "? => " + (f1 <= f2));
-            
+
             Console.WriteLine("f1 == f2? => " + f1 + " == " + f2 + "? => " + (f1 == f2));
             Console.WriteLine("f1 != f2? => " + f1 + " != " + f2 + "? => " + (f1 != f2));
+
+            Frac f_prenorm = new Frac(64, 1024);
+            Frac f_norm = new Frac(64, 1024);
+            f_norm.Normalize();
+            Console.WriteLine(f_prenorm + " = " + f_norm);
         }
     }
 }
