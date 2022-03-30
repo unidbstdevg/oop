@@ -66,13 +66,24 @@ namespace my_rect
             if(rb_select.Checked) {
                 pic.Select(e.X, e.Y);
             } else if(rb_create.Checked) {
+                int width = 0;
+                int height = 0;
+                try
+                {
+                    width = Int32.Parse(textbox_width.Text);
+                    height = Int32.Parse(textbox_height.Text);
+                } catch (FormatException) {
+                    MessageBox.Show("Width and height should be numbers");
+                    return;
+                }
+
                 MyFigure f;
                 switch(list_figures.Text) {
                     case "Ellipse":
-                        f = new MyEllipse(e.X, e.Y, 40, 40, Color.White, Color.Yellow);
+                        f = new MyEllipse(e.X, e.Y, width, height, Color.White, Color.Yellow);
                         break;
                     case "Rectangle":
-                        f = new MyRect(e.X, e.Y, 40, 40, Color.White, Color.Yellow);
+                        f = new MyRect(e.X, e.Y, width, height, Color.White, Color.Yellow);
                         break;
 
                     default:
