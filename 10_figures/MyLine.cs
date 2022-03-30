@@ -17,7 +17,7 @@ namespace my_rect
         public int Y1 { get { return y1; } set { y1 = value; } }
         public int X2 { get { return x2; } set { x2 = value; } }
         public int Y2 { get { return y2; } set { y2 = value; } }
-        public Color CColor { get { return cColor; } set { cColor = value; } }
+        public Color Color { get { return cColor; } set { cColor = value; } }
         public MyLine()
         {
             x1 = 10;

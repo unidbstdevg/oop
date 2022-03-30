@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="MyEllipse.cs" />
     <Compile Include="MyFigure.cs" />
+    <Compile Include="Picture.cs" />
     <Compile Include="MyLine.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="MyRect.cs" />

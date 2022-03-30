@@ -14,7 +14,7 @@ namespace my_rect
         protected Color cColor, bColor;
         protected string name = "figure";
 
-        public Color CColor { get { return cColor; } set { cColor = value; } }
+        public Color Color { get { return bColor; } set { bColor = value; } }
 
         private bool selected = true;
         public bool Selected {

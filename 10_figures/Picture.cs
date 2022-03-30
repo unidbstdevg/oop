@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace my_rect
 {
@@ -29,7 +31,7 @@ namespace my_rect
                 d.Draw(canvas);
         }
 
-        public override void Add(MyFigure f)
+        public void Add(MyFigure f)
         {
             al.Add(f);
             if(figure != null) {
@@ -74,6 +76,11 @@ namespace my_rect
                 figure = ff;
             }
             return ff;
+        }
+
+        public void GreenifyAll() {
+            foreach (IDrawableC d in al)
+                d.Color = Color.Green;
         }
     }
 }
