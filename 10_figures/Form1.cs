@@ -60,5 +60,12 @@ namespace my_rect
 
             panel1.Invalidate();
         }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            pic.Select(e.X, e.Y);
+
+            panel1.Invalidate();
+        }
     }
 }
