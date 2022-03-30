@@ -58,6 +58,18 @@ namespace my_rect
             panel1.Invalidate();
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if(pic.Figure == null) {
+                MessageBox.Show("Firstly select figure");
+                return;
+            }
+
+            pic.Delete(pic.Figure);
+
+            panel1.Invalidate();
+        }
+
         private void button3_Click(object sender, EventArgs e) {
             if(pic.Figure == null) {
                 MessageBox.Show("Firstly select figure");
