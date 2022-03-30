@@ -44,10 +44,10 @@ namespace _05_look
             double ky =  dy / gipotenyza;
             double kx =  dx / gipotenyza;
 
-            double ddy = ky * R;
-            double ddx = kx * R;
-            pupil.X = cx + (int)(ddx / 2);
-            pupil.Y = cy + (int)(ddy / 2);
+            double ddy = ky * r;
+            double ddx = kx * r;
+            pupil.X = cx + (int)(ddx);
+            pupil.Y = cy + (int)(ddy);
         }
 
     }
