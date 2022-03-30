@@ -34,9 +34,13 @@ namespace _09_matrix
                 c = a * 2;
                 c.Print();
 
-                Console.WriteLine("\nMatrix transpoed a:");
+                Console.WriteLine("\nMatrix transposed a:");
                 MyMatrix a_transposed = a.Transpose();
                 a_transposed.Print();
+
+                Console.WriteLine("\nMatrix a * a_transposed:");
+                MyMatrix a_a_transp = a * a_transposed;
+                a_a_transp.Print();
             } catch(Exception ex) {
                 Console.WriteLine(ex.Message);
             }

@@ -83,6 +83,29 @@ namespace _09_matrix
             return rm;
         }
 
+        public static MyMatrix operator *(MyMatrix a, MyMatrix b) {
+            if(a.k != b.n)
+            {
+                throw new ApplicationException("Для перемножения матрицы A на B количество столбцов матрицы A должно быть равно количеству строк матрицы B");
+            }
+            int obshhee_kolvo = a.k;
+
+            MyMatrix rm = new MyMatrix(a.n, b.k);
+
+            for(int i = 0; i < a.n; i++)
+            {
+                for(int j = 0; j < b.k; j++)
+                {
+                    double sm = 0;
+                    for (int t = 0; t < obshhee_kolvo; t++)
+                        sm += a[i, t] * b[t, j];
+
+                    rm[i,j] = sm;
+                }
+            }
+
+            return rm;
+        }
         public static MyMatrix operator *(MyMatrix a, int k)
         {
             MyMatrix rm = new MyMatrix(a.n, a.k);
