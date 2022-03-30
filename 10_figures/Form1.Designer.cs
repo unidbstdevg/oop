@@ -30,6 +30,11 @@ namespace my_rect
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+
+            this.rb_select = new System.Windows.Forms.RadioButton();
+            this.rb_create = new System.Windows.Forms.RadioButton();
+            this.list_figures = new System.Windows.Forms.ComboBox();
+
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -45,9 +50,43 @@ namespace my_rect
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             // 
+            // rb_select
+            // 
+            this.rb_select.AutoSize = true;
+            this.rb_select.Location = new System.Drawing.Point(713, 10);
+            this.rb_select.Name = "rb_select";
+            this.rb_select.Size = new System.Drawing.Size(69, 21);
+            this.rb_select.TabIndex = 1;
+            this.rb_select.Text = "Select";
+            this.rb_select.UseVisualStyleBackColor = true;
+            this.rb_select.CheckedChanged += new System.EventHandler(this.mode_CheckedChanged);
+            // 
+            // rb_create
+            // 
+            this.rb_create.AutoSize = true;
+            this.rb_create.Location = new System.Drawing.Point(713, 30);
+            this.rb_create.Name = "rb_create";
+            this.rb_create.Size = new System.Drawing.Size(69, 21);
+            this.rb_create.TabIndex = 1;
+            this.rb_create.Text = "Create";
+            this.rb_create.UseVisualStyleBackColor = true;
+            this.rb_create.CheckedChanged += new System.EventHandler(this.mode_CheckedChanged);
+            // 
+            // list_figures
+            // 
+            this.list_figures.AutoSize = true;
+            this.list_figures.Location = new System.Drawing.Point(713, 60);
+            /* this.list_figures.Name = "rb_select"; */
+            this.list_figures.Size = new System.Drawing.Size(69, 21);
+            this.list_figures.TabIndex = 1;
+            this.list_figures.Text = "Figure";
+            /* this.list_figures.UseVisualStyleBackColor = true; */
+            this.list_figures.Items.Add("Ellipse");
+            this.list_figures.Items.Add("Rectangle");
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(713, 23);
+            this.button1.Location = new System.Drawing.Point(713, 400);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -57,7 +96,7 @@ namespace my_rect
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(713, 69);
+            this.button2.Location = new System.Drawing.Point(713, 90);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -83,6 +122,9 @@ namespace my_rect
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.rb_select);
+            this.Controls.Add(this.rb_create);
+            this.Controls.Add(this.list_figures);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -96,6 +138,9 @@ namespace my_rect
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.RadioButton rb_select;
+        private System.Windows.Forms.RadioButton rb_create;
+        private System.Windows.Forms.ComboBox list_figures;
     }
 }
 

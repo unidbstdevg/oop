@@ -63,9 +63,31 @@ namespace my_rect
 
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
-            pic.Select(e.X, e.Y);
+            if(rb_select.Checked) {
+                pic.Select(e.X, e.Y);
+            } else if(rb_create.Checked) {
+                MyFigure f;
+                switch(list_figures.Text) {
+                    case "Ellipse":
+                        f = new MyEllipse(e.X, e.Y, 40, 40, Color.White, Color.Yellow);
+                        break;
+                    case "Rectangle":
+                        f = new MyRect(e.X, e.Y, 40, 40, Color.White, Color.Yellow);
+                        break;
+
+                    default:
+                        MessageBox.Show("Firstly choose figure type");
+                        return;
+                }
+
+                pic.Add(f);
+            }
 
             panel1.Invalidate();
+        }
+
+        private void mode_CheckedChanged(object sender, EventArgs e)
+        {
         }
     }
 }
