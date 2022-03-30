@@ -67,11 +67,21 @@ namespace _09_matrix
                 throw new ApplicationException("Matrix is not equivalent");
             }
 
-            MyMatrix rm = new MyMatrix(a.n, b.k);
+            MyMatrix rm = new MyMatrix(a.n, a.k);
 
             for(int i = 0; i < a.n; i++)
                 for(int j = 0; j < a.k; j++)
                     rm[i,j] = a[i,j] + b[i,j];
+
+            return rm;
+        }
+        public static MyMatrix operator *(MyMatrix a, int k)
+        {
+            MyMatrix rm = new MyMatrix(a.n, a.k);
+
+            for(int i = 0; i < a.n; i++)
+                for(int j = 0; j < a.k; j++)
+                    rm[i,j] = a[i,j] * k;
 
             return rm;
         }

@@ -14,6 +14,7 @@ namespace _09_matrix
                 MyMatrix b = new MyMatrix(2, 3);
                 b[0, 1] = 2;
                 b[1, 1] = 3;
+                MyMatrix c;
 
                 Console.WriteLine("Matrix a:");
                 a.Print();
@@ -22,7 +23,11 @@ namespace _09_matrix
                 b.Print();
 
                 Console.WriteLine("\nMatrix a+b:");
-                MyMatrix c = a + b;
+                c = a + b;
+                c.Print();
+
+                Console.WriteLine("\nMatrix a*2:");
+                c = a * 2;
                 c.Print();
             } catch(Exception ex) {
                 Console.WriteLine(ex.Message);
