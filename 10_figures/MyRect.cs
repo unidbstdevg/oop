@@ -27,6 +27,8 @@ namespace my_rect
 
             gr.FillRectangle(br, x, y, width, height);
             gr.DrawRectangle(pn, x, y, width, height);
+
+            base.Draw(gr);
         }
 
     }

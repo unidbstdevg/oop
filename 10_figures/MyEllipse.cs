@@ -22,6 +22,8 @@ namespace my_rect
 
             gr.FillEllipse(br, x, y, width, height);
             gr.DrawEllipse(pn, x, y, width, height);
+
+            base.Draw(gr);
         }
 
     }
