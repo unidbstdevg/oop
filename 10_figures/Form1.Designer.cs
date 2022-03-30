@@ -50,7 +50,9 @@ namespace my_rect
             this.panel1.Size = new System.Drawing.Size(678, 426);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // rb_select
             // 
@@ -73,6 +75,7 @@ namespace my_rect
             this.rb_create.Text = "Create";
             this.rb_create.UseVisualStyleBackColor = true;
             this.rb_create.CheckedChanged += new System.EventHandler(this.mode_CheckedChanged);
+            this.rb_create.Checked = true;
             // 
             // list_figures
             // 
@@ -80,7 +83,7 @@ namespace my_rect
             this.list_figures.Location = new System.Drawing.Point(713, 60);
             this.list_figures.Size = new System.Drawing.Size(69, 21);
             this.list_figures.TabIndex = 1;
-            this.list_figures.Text = "Figure";
+            this.list_figures.Text = "Ellipse";
             this.list_figures.Items.Add("Ellipse");
             this.list_figures.Items.Add("Rectangle");
             // 

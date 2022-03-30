@@ -14,7 +14,13 @@ namespace my_rect
         protected Color cColor, bColor;
         protected string name = "figure";
 
+        private int activePoint = 3;
+
         public Color Color { get { return bColor; } set { bColor = value; } }
+        public int Width { get { return width; } set { width = value; } }
+        public int Height { get { return height; } set { height = value; } }
+        public int X { get { return x; } set { x = value; } }
+        public int Y { get { return y; } set { y = value; } }
 
         private bool selected = true;
         public bool Selected {
@@ -78,6 +84,50 @@ namespace my_rect
 
         public virtual bool Touch(int xx, int yy) {
             return false;
+        }
+
+        public void Drag(int dx, int dy) {
+            if(activePoint == 0) {
+                x += dx;
+                y += dy;
+            } else if(activePoint == 1) {
+                Width -= dx;
+                Height -= dy;
+                x += dx;
+                y += dy;
+            } else if(activePoint == 2) {
+                Width += dx;
+                Height -= dy;
+                y += dy;
+            } else if(activePoint == 3) {
+                Width += dx;
+                Height += dy;
+            } else if(activePoint == 4) {
+                Width -= dx;
+                Height += dy;
+                x += dx;
+            }
+        }
+
+        public bool Shot(int xx, int yy)
+        {
+            activePoint = -1;
+            if(xx > x-3 && xx < x + width + 3 && yy > y - 3 && yy < y + height + 3) {
+                activePoint = 0;
+            } else if (xx > x - 8 && xx < x && yy > y - 8 && yy < y) {
+                activePoint = 1;
+            } else if (xx > x + width + 3 && xx < x + width + 8 && yy > y - 8 && yy < y) {
+                activePoint = 2;
+            } else if (xx > x + width + 3 && xx < x + width + 8 && yy > y + height + 3 && yy < y + height + 8) {
+                activePoint = 3;
+            } else if (xx > x - 8 && xx < x && yy > y + height + 3 && yy < y + height + 8) {
+                activePoint = 4;
+            }
+
+            if (activePoint == -1)
+                return false;
+            else
+                return true;
         }
     }
 }

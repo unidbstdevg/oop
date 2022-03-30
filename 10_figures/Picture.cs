@@ -14,6 +14,7 @@ namespace my_rect
         private Graphics canvas;
         private ArrayList al = new ArrayList();
         private MyFigure figure;
+        public MyFigure Figure { get { return figure; } }
 
         public Picture()
         {

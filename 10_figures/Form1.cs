@@ -13,6 +13,9 @@ namespace my_rect
     public partial class Form1 : Form
     {
         Picture pic;
+        int oldX = 0;
+        int oldY = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -61,29 +64,27 @@ namespace my_rect
             panel1.Invalidate();
         }
 
-        private void panel1_MouseClick(object sender, MouseEventArgs e)
-        {
-            if(rb_select.Checked) {
-                pic.Select(e.X, e.Y);
-            } else if(rb_create.Checked) {
-                int width = 0;
-                int height = 0;
-                try
-                {
-                    width = Int32.Parse(textbox_width.Text);
-                    height = Int32.Parse(textbox_height.Text);
-                } catch (FormatException) {
-                    MessageBox.Show("Width and height should be numbers");
-                    return;
-                }
+        private void panel1_MouseDown(object sender, MouseEventArgs e) {
+            oldX = e.X;
+            oldY = e.Y;
 
+            if(rb_select.Checked) {
+                if (pic.Figure != null) {
+                    if (pic.Figure.Shot(e.X, e.Y))
+                        return;
+                }
+                MyFigure fsel = pic.Select(e.X, e.Y);
+                if(fsel != null) {
+                    pic.Figure.Shot(e.X, e.Y);
+                }
+            } else if(rb_create.Checked) {
                 MyFigure f;
                 switch(list_figures.Text) {
                     case "Ellipse":
-                        f = new MyEllipse(e.X, e.Y, width, height, Color.White, Color.Yellow);
+                        f = new MyEllipse(e.X, e.Y, 1, 1, Color.White, Color.Yellow);
                         break;
                     case "Rectangle":
-                        f = new MyRect(e.X, e.Y, width, height, Color.White, Color.Yellow);
+                        f = new MyRect(e.X, e.Y, 1, 1, Color.White, Color.Yellow);
                         break;
 
                     default:
@@ -96,6 +97,27 @@ namespace my_rect
 
             panel1.Invalidate();
         }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e) {
+            if (pic.Figure == null)
+                return;
+            if (e.Button != MouseButtons.Left)
+                return;
+
+            pic.Figure.Drag(e.X - oldX, e.Y - oldY);
+            oldX = e.X;
+            oldY = e.Y;
+
+            panel1.Invalidate();
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e) {
+            if(!rb_select.Checked) {
+                pic.Deselect();
+                panel1.Invalidate();
+            }
+        }
+
 
         private void mode_CheckedChanged(object sender, EventArgs e)
         {
