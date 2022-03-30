@@ -39,9 +39,11 @@ namespace _07_frac
             }
             chisl = c;
             znam = z;
+
+            this.Normalize();
         }
 
-        public void Normalize() {
+        private void Normalize() {
             if(znam < 0) {
                 chisl *= -1;
                 znam *= -1;
@@ -57,7 +59,24 @@ namespace _07_frac
 
         public override string ToString()
         {
-            return "(" + chisl + "/" + znam + ")";
+            this.Normalize();
+
+            if(chisl % znam == 0) {
+                return ((int)(chisl / znam)).ToString();
+            }
+
+            string sign = "";
+            int t_chisl = chisl;
+            if(chisl < 0) {
+                sign = "-";
+                t_chisl *= -1;
+            }
+
+            if(t_chisl > znam) {
+                return sign + (int)(t_chisl / znam) + "(" + (t_chisl % znam) + "/" + znam + ")";
+            }
+
+            return sign + "(" + t_chisl + "/" + znam + ")";
         }
 
         public static Frac operator *(Frac a, Frac b)
