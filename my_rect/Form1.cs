@@ -31,8 +31,14 @@ namespace my_rect
             var rnd = new Random();
             int w = rnd.Next(35, Math.Min(panel1.Width, panel1.Height) / 2);
             int h = rnd.Next(35, Math.Min(panel1.Width, panel1.Height) / 2);
-            MyFigure r = new MyEllipse(rnd.Next(panel1.Width - w), rnd.Next(panel1.Height - h), w, h, Color.White, Color.Black);
-            rects.Add(r);
+
+            Color color = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
+
+            MyFigure elip = new MyEllipse(rnd.Next(panel1.Width - w), rnd.Next(panel1.Height - h), w, h, Color.White, color);
+            rects.Add(elip);
+
+            MyFigure rect = new MyRect(rnd.Next(panel1.Width - w), rnd.Next(panel1.Height - h), w, h, Color.White, color);
+            rects.Add(rect);
 
             panel1.Invalidate();
         }

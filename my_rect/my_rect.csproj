@@ -52,6 +52,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyEllipse.cs" />
     <Compile Include="MyFigure.cs" />
     <Compile Include="MyRect.cs" />
     <Compile Include="Program.cs" />
