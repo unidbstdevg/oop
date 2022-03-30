@@ -69,5 +69,23 @@ namespace _04_snowman
                 panel1.Refresh();
             }
         }
+
+        private void shrinkbtn_Click_1(object sender, EventArgs e)
+        {
+            if (man != null)
+            {
+                man.Height -= 10;
+                panel1.Refresh();
+            }
+        }
+
+        private void extendbtn_Click_1(object sender, EventArgs e)
+        {
+            if (man != null)
+            {
+                man.Height += 10;
+                panel1.Refresh();
+            }
+        }
     }
 }

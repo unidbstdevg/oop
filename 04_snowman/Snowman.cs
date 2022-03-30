@@ -55,10 +55,15 @@ namespace _04_snowman
             }
             set
             {
-                if (value >= 10)
-                    height = value;
+                if (value < 50)
+                    height = 50;
                 else
-                    height = 10;
+                    height = value;
+
+                int d = height / 3;
+                head = new MyEllipse(x, y, d, d, Color.Black, Color.White);
+                body = new MyEllipse(x, y + d, d, d, Color.Black, Color.White);
+                down = new MyEllipse(x, y + 2*d, d, d, Color.Black, Color.White);
             }
         }
 

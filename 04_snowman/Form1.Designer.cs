@@ -34,6 +34,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.shrinkbtn = new System.Windows.Forms.Button();
+            this.extendbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,6 +98,26 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
+            // shrinkbtn
+            // 
+            this.shrinkbtn.Location = new System.Drawing.Point(720, 130);
+            this.shrinkbtn.Name = "shrinkbtn";
+            this.shrinkbtn.Size = new System.Drawing.Size(50, 23);
+            this.shrinkbtn.TabIndex = 2;
+            this.shrinkbtn.Text = "Shrink";
+            this.shrinkbtn.UseVisualStyleBackColor = true;
+            this.shrinkbtn.Click += new System.EventHandler(this.shrinkbtn_Click_1);
+            // 
+            // extendbtn
+            // 
+            this.extendbtn.Location = new System.Drawing.Point(720, 170);
+            this.extendbtn.Name = "extendbtn";
+            this.extendbtn.Size = new System.Drawing.Size(50, 23);
+            this.extendbtn.TabIndex = 2;
+            this.extendbtn.Text = "Extend";
+            this.extendbtn.UseVisualStyleBackColor = true;
+            this.extendbtn.Click += new System.EventHandler(this.extendbtn_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -105,6 +127,8 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
+            this.Controls.Add(this.shrinkbtn);
+            this.Controls.Add(this.extendbtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
@@ -120,6 +144,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button shrinkbtn;
+        private System.Windows.Forms.Button extendbtn;
         private System.Windows.Forms.Button button5;
     }
 }
