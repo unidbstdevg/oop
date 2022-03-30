@@ -13,7 +13,6 @@ namespace my_rect
     {
         protected int x, y, height, width;
         protected Color cColor, bColor;
-        protected string name = "figure";
 
         private int activePoint = 3;
 
@@ -29,6 +28,9 @@ namespace my_rect
             get { return selected; }
             set { selected = value; }
         }
+
+        int gap = 20;
+        int pad = 30;
 
         public MyFigure()
         {
@@ -68,30 +70,27 @@ namespace my_rect
 
             if(nwidth < 0) {
                 nwidth = width * -1;
-                nx += width;
+                nx -= nwidth;
             }
             if(nheight < 0) {
                 nheight = height * -1;
-                ny += height;
+                ny -= nheight;
             }
 
             Pen pn = new Pen(Color.Black, 1);
             pn.DashStyle = DashStyle.Dash;
             pn.DashPattern = new float[2] { 6, 3 };
 
-            int gap = 20;
-
             Point p1 = new Point(nx - gap, ny - gap);
             Point p2 = new Point(nx - gap, ny + nheight + gap);
-            Point pgap = new Point(nx + nwidth + gap, ny + nheight + gap);
+            Point p3 = new Point(nx + nwidth + gap, ny + nheight + gap);
             Point p4 = new Point(nx + nwidth + gap, ny - gap);
             gr.DrawLine(pn, p1, p2);
-            gr.DrawLine(pn, p2, pgap);
-            gr.DrawLine(pn, pgap, p4);
+            gr.DrawLine(pn, p2, p3);
+            gr.DrawLine(pn, p3, p4);
             gr.DrawLine(pn, p4, p1);
 
-            int pad = 5;
-            int pad_size = 10;
+            int pad_size = pad;
             gr.DrawRectangle(pn, nx - gap - pad, ny - gap - pad, pad_size, pad_size);
             gr.DrawRectangle(pn, nx - gap - pad, ny + nheight + gap, pad_size, pad_size);
             gr.DrawRectangle(pn, nx + nwidth + gap, ny + nheight + gap, pad_size, pad_size);
@@ -128,15 +127,15 @@ namespace my_rect
         public bool Shot(int xx, int yy)
         {
             activePoint = -1;
-            if(xx > x-3 && xx < x + width + 3 && yy > y - 3 && yy < y + height + 3) {
+            if(xx > x-gap && xx < x + width + gap && yy > y - gap && yy < y + height + gap) {
                 activePoint = 0;
-            } else if (xx > x - 8 && xx < x && yy > y - 8 && yy < y) {
+            } else if (xx > x - (gap+pad) && xx < x && yy > y - (gap+pad) && yy < y) {
                 activePoint = 1;
-            } else if (xx > x + width + 3 && xx < x + width + 8 && yy > y - 8 && yy < y) {
+            } else if (xx > x + width + gap && xx < x + width + (gap+pad) && yy > y - (gap+pad) && yy < y) {
                 activePoint = 2;
-            } else if (xx > x + width + 3 && xx < x + width + 8 && yy > y + height + 3 && yy < y + height + 8) {
+            } else if (xx > x + width + gap && xx < x + width + (gap+pad) && yy > y + height + gap && yy < y + height + (gap+pad)) {
                 activePoint = 3;
-            } else if (xx > x - 8 && xx < x && yy > y + height + 3 && yy < y + height + 8) {
+            } else if (xx > x - (gap+pad) && xx < x && yy > y + height + gap && yy < y + height + (gap+pad)) {
                 activePoint = 4;
             }
 

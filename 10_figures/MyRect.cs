@@ -34,11 +34,11 @@ namespace my_rect
 
             if(nwidth < 0) {
                 nwidth = width * -1;
-                nx += width;
+                nx -= nwidth;
             }
             if(nheight < 0) {
                 nheight = height * -1;
-                ny += height;
+                ny -= nheight;
             }
 
             gr.FillRectangle(br, nx, ny, nwidth, nheight);
