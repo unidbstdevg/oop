@@ -34,8 +34,7 @@ namespace _07_frac
         {
             if (z == 0)
             {
-                Console.WriteLine("[error] Деление на ноль в функции Frac()");
-                Environment.Exit(1);
+                throw new ApplicationException("0 can't be in denominator of fraction");
             }
             chisl = c;
             znam = z;
