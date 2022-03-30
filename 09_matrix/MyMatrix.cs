@@ -75,6 +75,14 @@ namespace _09_matrix
 
             return rm;
         }
+
+        public static MyMatrix operator -(MyMatrix a, MyMatrix b)
+        {
+            MyMatrix rm = a + (b * -1);
+
+            return rm;
+        }
+
         public static MyMatrix operator *(MyMatrix a, int k)
         {
             MyMatrix rm = new MyMatrix(a.n, a.k);

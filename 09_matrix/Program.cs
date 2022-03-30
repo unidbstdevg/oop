@@ -26,6 +26,10 @@ namespace _09_matrix
                 c = a + b;
                 c.Print();
 
+                Console.WriteLine("\nMatrix a-b:");
+                c = a - b;
+                c.Print();
+
                 Console.WriteLine("\nMatrix a*2:");
                 c = a * 2;
                 c.Print();
