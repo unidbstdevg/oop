@@ -12,17 +12,17 @@ namespace my_rect
 {
     public partial class Form1 : Form
     {
-        List<IDrawable> drawables;
+        List<IDrawableC> drawables;
         public Form1()
         {
             InitializeComponent();
 
-            drawables = new List<IDrawable>();
+            drawables = new List<IDrawableC>();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            foreach (IDrawable d in drawables)
+            foreach (IDrawableC d in drawables)
                 d.Draw(e.Graphics);
         }
 
@@ -57,7 +57,7 @@ namespace my_rect
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            foreach (IDrawable d in drawables)
+            foreach (IDrawableC d in drawables)
                 d.CColor = Color.Green;
 
             panel1.Invalidate();

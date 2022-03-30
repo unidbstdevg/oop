@@ -9,12 +9,14 @@ namespace my_rect
 {
     interface IDrawable
     {
+        void Draw(Graphics gr);
+    }
+    interface IDrawableC : IDrawable
+    {
         Color CColor {
             get;
             set;
         }
-
-        void Draw(Graphics gr);
     }
 }
 

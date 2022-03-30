@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace my_rect
 {
-    public class MyLine : IDrawable
+    public class MyLine : IDrawableC
     {
         protected int x1, y1, x2, y2, width;
         protected Color cColor;

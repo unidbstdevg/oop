@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace my_rect
 {
-    public class MyFigure : IDrawable
+    public class MyFigure : IDrawableC
     {
         protected int x, y, height, width;
         protected Color cColor, bColor;
