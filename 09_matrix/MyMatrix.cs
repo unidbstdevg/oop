@@ -126,5 +126,49 @@ namespace _09_matrix
 
             return rm;
         }
+
+        private MyMatrix GetMinor(int row, int column)
+        {
+            if (n != k)
+                throw new ApplicationException("Матрица не квадратная");
+
+            MyMatrix rm = new MyMatrix(n - 1, n - 1);
+
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < k; j++)
+                    if ((i != row) || (j != column))
+                    {
+                        if (i > row && j < column)
+                            rm[i - 1, j] = m[i, j];
+                        if (i < row && j > column)
+                            rm[i, j - 1] = m[i, j];
+                        if (i > row && j > column)
+                            rm[i - 1, j - 1] = m[i,j];
+                        if (i < row && j < column)
+                            rm[i, j] = m[i, j];
+                    }
+
+            return rm;
+        }
+        public double Determinant()
+        {
+            // https://www.cyberforum.ru/csharp-beginners/thread915016.html
+            if (n != k)
+                throw new ApplicationException("Матрица не квадратная");
+
+            double det = 0;
+
+            int rank = n;
+
+            if (rank == 1)
+                det = m[0, 0];
+            else if (rank == 2)
+                det = m[0, 0] * m[1, 1] - m[0, 1] * m[1, 0];
+            else
+                for (int j = 0; j < k; j++)
+                    det += Math.Pow(-1, j) * m[0, j] * this.GetMinor(0, j).Determinant();
+
+            return det;
+        }
     }
 }

@@ -41,6 +41,19 @@ namespace _09_matrix
                 Console.WriteLine("\nMatrix a * a_transposed:");
                 MyMatrix a_a_transp = a * a_transposed;
                 a_a_transp.Print();
+
+
+                Console.WriteLine("\nSquare matrix d:");
+                MyMatrix d = new MyMatrix(3, 3);
+                d[0, 0] = 5;
+                d[1, 1] = 9;
+                d[1, 2] = 1;
+                d[0, 2] = 7;
+                d[2, 0] = 1;
+                d.Print();
+
+                double d_determ = d.Determinant();
+                Console.WriteLine("\nDeterminant of d: " + d_determ);
             } catch(Exception ex) {
                 Console.WriteLine(ex.Message);
             }
