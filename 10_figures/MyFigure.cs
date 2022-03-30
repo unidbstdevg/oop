@@ -13,6 +13,7 @@ namespace my_rect
     {
         protected int x, y, height, width;
         protected Color cColor, bColor;
+        protected string name = "figure";
 
         private int activePoint = 3;
 
@@ -143,6 +144,17 @@ namespace my_rect
                 return false;
             else
                 return true;
+        }
+
+        public void FixCoordinates() {
+            if(width < 0) {
+                width *= -1;
+                x -= width;
+            }
+            if(height < 0) {
+                height *= -1;
+                y -= height;
+            }
         }
     }
 }

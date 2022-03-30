@@ -56,6 +56,8 @@ namespace my_rect
 
         public void Deselect() {
             if(figure != null) {
+                figure.FixCoordinates();
+
                 figure.Selected = false;
             }
 
