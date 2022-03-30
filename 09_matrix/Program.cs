@@ -54,6 +54,24 @@ namespace _09_matrix
 
                 double d_determ = d.Determinant();
                 Console.WriteLine("\nDeterminant of d: " + d_determ);
+
+
+                MyMatrix g = new MyMatrix(3, 3);
+                g[0, 0] = 1;
+                g[0, 1] = 2;
+                g[0, 2] = 3;
+                g[1, 0] = 4;
+                g[1, 1] = 5;
+                g[1, 2] = 6;
+                g[2, 0] = 7;
+                g[2, 1] = 2;
+                /* g[2, 1] = 8; */
+                g[2, 2] = 9;
+                Console.WriteLine("Matrix g:");
+                g.Print();
+                MyMatrix g_inv = g.Inverse();
+                Console.WriteLine("\nInverse of g:");
+                g_inv.Print();
             } catch(Exception ex) {
                 Console.WriteLine(ex.Message);
             }

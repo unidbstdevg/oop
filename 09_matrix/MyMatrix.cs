@@ -10,6 +10,8 @@ namespace _09_matrix
     {
         private double[,] m;
         private int n, k;
+        // n - rows
+        // k - columns
 
         public double this [int i, int j] {
             get {
@@ -169,6 +171,44 @@ namespace _09_matrix
                     det += Math.Pow(-1, j) * m[0, j] * this.GetMinor(0, j).Determinant();
 
             return det;
+        }
+
+        public MyMatrix Inverse() {
+            MyMatrix obr = new MyMatrix(n, k);
+
+            double mxDet = this.Determinant();
+            if(mxDet == 0) {
+                throw new ApplicationException("Определитель равен нулю. Обратной матрицы не существует");
+            }
+
+            double result;
+            for (int z = 0; z < n; z++)
+            {
+                for (int q = 0; q < k; q++)
+                {
+                    int flag = 0;
+                    MyMatrix minor = new MyMatrix(n - 1, k - 1);
+                    for (int i = 0; i < n; i++)
+                    {
+                        if (i != z)
+                        {
+                            int flag1 = 0;
+                            for (int j = 0; j < k; j++)
+                            {
+                                if (j != q)
+                                {
+                                    minor[flag, flag1] = m[i, j];
+                                    flag1++;
+                                }
+                            }
+                            flag++;
+                        }
+                    }
+                    result = minor.Determinant();
+                    obr[q, z] = Math.Round(Math.Pow(-1, z + q) * result / mxDet, 2);
+                }
+            }
+            return obr;
         }
     }
 }
