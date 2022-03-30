@@ -1,8 +1,10 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System;
 
 namespace my_rect
 {
+    [Serializable]
     public class MyEllipse : MyFigure
     {
         public MyEllipse()

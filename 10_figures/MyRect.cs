@@ -8,6 +8,7 @@ using System.Drawing.Drawing2D;
 
 namespace my_rect
 {
+    [Serializable]
     public class MyRect : MyFigure
     {
         public MyRect()

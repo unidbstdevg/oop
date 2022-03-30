@@ -9,25 +9,23 @@ using System.Windows.Forms;
 
 namespace my_rect
 {
+    [Serializable]
     public class Picture
     {
-        private Graphics canvas;
         private ArrayList al = new ArrayList();
         private MyFigure figure;
         public MyFigure Figure { get { return figure; } }
 
         public Picture()
         {
-            canvas = null;
             figure = null;
         }
         public Picture(Control cntrl)
         {
-            canvas = cntrl.CreateGraphics();
             figure = null;
         }
 
-        public void Draw() {
+        public void Draw(Graphics canvas) {
             foreach (IDrawableC d in al)
                 d.Draw(canvas);
         }

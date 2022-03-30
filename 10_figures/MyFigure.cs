@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace my_rect
 {
+    [Serializable]
     public class MyFigure : IDrawableC
     {
         protected int x, y, height, width;

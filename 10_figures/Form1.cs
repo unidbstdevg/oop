@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace my_rect
 {
@@ -15,6 +17,8 @@ namespace my_rect
         Picture pic;
         int oldX = 0;
         int oldY = 0;
+
+        string filename_serialize = "data_asd";
 
         public Form1()
         {
@@ -25,7 +29,7 @@ namespace my_rect
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            pic.Draw();
+            pic.Draw(e.Graphics);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -154,5 +158,36 @@ namespace my_rect
         private void mode_CheckedChanged(object sender, EventArgs e)
         {
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Вы хотите сохранить состояние программы в файл?", "Да?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No)
+                return;
+
+            FileStream f = File.Create(filename_serialize);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(f, pic);
+            f.Close();
+
+            MessageBox.Show("Данные сохранены в файл " + filename_serialize);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            if(File.Exists(filename_serialize))
+            {
+                DialogResult dialogResult = MessageBox.Show("Обнаружен файл с сохранёнными данными предыдущей работы программы. Вы хотите восстановить их?", "Да?", MessageBoxButtons.YesNo);
+                if(dialogResult == DialogResult.Yes)
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    Stream f = File.OpenRead(filename_serialize);
+
+                    pic = bf.Deserialize(f) as Picture;
+                    f.Close();
+                }
+            }
+        }
+
     }
 }
